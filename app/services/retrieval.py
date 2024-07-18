@@ -11,7 +11,7 @@ def retrieve_data(query: str):
     
     query_vector = model.encode([query])[0].tolist()
     search_params = {"metric_type": "L2", "params": {"nprobe": 10}}
-    results = collection.search([query_vector], "embedding", search_params, limit=10, output_fields=["id"])
+    results = collection.search([query_vector], "embedding", search_params, limit=10, output_fields=["content"])
 
     logger.info("Data retrieval completed")
     return results
